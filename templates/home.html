@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>hihiedu</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            height: 0;
+        }
+
+        /***************导航栏******************************************************************************************************************/
+        .header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            height: 96px;
+            position: -webkit-sticky;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+            z-index: 1;
+            -webkit-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+            background-color: #ffffff;
+        }
+
+        .change1 {
+            height: 70px;
+            background-color: #ffffffec;
+        }
+
+        .logo1 {
+            height: 66px;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+        .logo2 {
+            height: 54px;
+            padding-left: 15px;
+            border-left: solid 1px #bbb;
+        }
+
+        .main-drop {
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            margin-top: 30px;
+            -webkit-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+        }
+
+        .change2 {
+            margin-top: 0px;
+        }
+
+        #donate {
+            margin-right: 15px;
+            border: 1px solid #e01e5a;
+            color: #e01e5a;
+            outline: none;
+            background: rgba(255, 255, 255, 0);
+            font-size: 1em;
+            padding: 6px 5px;
+            transition: background ease, color ease;
+            display: inline-block;
+            margin-left: 6px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        #donate:hover {
+            background: #e01e5a;
+            color: white;
+        }
+
+        .dorp {
+            position: relative;
+            display: inline-block;
+            padding: 20px 6px;
+            margin: 4px;
+            cursor: pointer;
+        }
+
+        .dorp_item {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 150px;
+            text-align: center;
+            margin-top: 20px;
+            border-top: solid 2px #e01e5a;
+        }
+
+        .dorp:hover .dorp_item {
+            display: block;
+        }
+
+        ul li:nth-child(1) {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        ul li:nth-child(2) {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+
+        ul:hover li:nth-child(2) {
+            display: block;
+        }
+
+        /************************************************************************************************************************************/
+        #module1 {
+            background: url(" {% static 'images/simulations.jpg' %}") repeat-x center center;
+            background-size: 100%;
+            height: 533px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 96px;
+
+        }
+
+        #title-text {
+            font-size: 2.8em;
+            font-weight: 600;
+            color: #ffffff;
+            max-width: 530px;
+        }
+
+        a.play-link {
+            display: inline-block;
+            font-size: 1em;
+            color: #ffffff;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 15px;
+            margin: 6px 0;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: 2px solid #6acef5;
+            border-radius: 35px;
+            transition: background 0.2s ease;
+        }
+
+        a.play-link:hover {
+            background: #6acef5;
+        }
+
+        /********************************************************************************************************/
+        #module2 .sims-delivered {
+            padding: 8px;
+            background: rgba(82, 23, 100, 0.05);
+            text-align: center;
+        }
+
+        #module2 .sims-delivered span {
+            margin: 0;
+            font-size: 2em;
+            display: inline-block;
+        }
+
+        #module2 .sims-delivered span.number {
+            font-weight: 600;
+        }
+
+        #module2 .sims-delivered span.string {
+            font-weight: 300;
+        }
+
+
+        /********************************************************************************************************/
+
+        #module3 .subjects {
+            display: flex;
+            flex-flow: row wrap;
+            margin: 40px auto;
+            justify-content: space-around;
+            max-width: 1300px;
+
+        }
+
+
+        .subject-wrapper .text {
+            margin: 0 auto 15px;
+            padding-top: 30px;
+            max-width: 111px;
+            font-size: 1.1em;
+            font-weight: 400;
+            word-break: break-word;
+            text-transform: uppercase;
+        }
+
+        .subject-wrapper a {
+            cursor: pointer;
+            text-decoration: none;
+            color: black;
+            display: block;
+            width: 161px;
+            height: 161px;
+            text-align: center;
+        }
+
+        .subject-icon {
+            margin: 0 auto;
+            width: 58px;
+            display: block;
+        }
+
+        .physics {
+            background-color: #f7cddd;
+            width: 161px;
+            height: 161px;
+            border-radius: 50%;
+            -webkit-filter: brightness(0.97);
+            -o-filter: brightness(0.97);
+            -moz-filter: brightness(0.97);
+            filter: brightness(0.97);
+            transition: all .5s;
+
+        }
+
+        .physics:hover {
+            box-shadow: 0px 0px 0px 5px #f7cddd;
+            -webkit-filter: brightness(1);
+            -o-filter: brightness(1);
+            -moz-filter: brightness(1);
+            filter: brightness(1);
+
+        }
+
+        .chemistry {
+            background-color: #d5f3fc;
+            border-radius: 50%;
+            width: 161px;
+            height: 161px;
+            -webkit-filter: brightness(0.96);
+            -o-filter: brightness(0.96);
+            -moz-filter: brightness(0.96);
+            filter: brightness(0.96);
+            transition: all .5s;
+        }
+
+        .chemistry:hover {
+            box-shadow: 0px 0px 0px 5px #d5f3fc;
+            -webkit-filter: brightness(1);
+            -o-filter: brightness(1);
+            -moz-filter: brightness(1);
+            filter: brightness(1);
+
+        }
+
+        .math {
+            background-color: #fff8cc;
+            border-radius: 50%;
+            width: 161px;
+            height: 161px;
+            -webkit-filter: brightness(0.96);
+            -o-filter: brightness(0.96);
+            -moz-filter: brightness(0.96);
+            filter: brightness(0.96);
+            transition: all .5s;
+        }
+
+        .math:hover {
+            box-shadow: 0px 0px 0px 5px #fff8cc;
+            -webkit-filter: brightness(1);
+            -o-filter: brightness(1);
+            -moz-filter: brightness(1);
+            filter: brightness(1);
+        }
+
+        .earth-science {
+            background-color: #c9eddd;
+            border-radius: 50%;
+            width: 161px;
+            height: 161px;
+            -webkit-filter: brightness(0.96);
+            -o-filter: brightness(0.96);
+            -moz-filter: brightness(0.96);
+            filter: brightness(0.96);
+            transition: all .5s;
+        }
+
+        .earth-science:hover {
+            box-shadow: 0px 0px 0px 5px#c9eddd;
+            -webkit-filter: brightness(1);
+            -o-filter: brightness(1);
+            -moz-filter: brightness(1);
+            filter: brightness(1);
+        }
+
+        .biology {
+            background-color: #d9c8de;
+            border-radius: 50%;
+            width: 161px;
+            height: 161px;
+            -webkit-filter: brightness(0.96);
+            -o-filter: brightness(0.96);
+            -moz-filter: brightness(0.96);
+            filter: brightness(0.96);
+            transition: all .5s;
+        }
+
+        .biology:hover {
+            box-shadow: 0px 0px 0px 5px #d9c8de;
+            -webkit-filter: brightness(1);
+            -o-filter: brightness(1);
+            -moz-filter: brightness(1);
+            filter: brightness(1);
+        }
+
+        /***********************************************************************************************************************/
+        #module4 {
+            background: url(" {% static 'images/teachers.jpg' %}") repeat-x center center;
+            background-size: 100%;
+            height: 501px;
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+
+
+
+        }
+
+        #module4 .gradient-container {
+            height: 501px;
+            padding-left: 20px;
+            margin-left: 15%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6) 100px, rgba(0, 0, 0, 0.6) 360px, rgba(0, 0, 0, 0) 660px);
+        }
+
+        #module4 .title-text {
+            margin: 0;
+            padding-left: 0;
+            font-size: 2.4em;
+            color: white;
+        }
+
+        #module4 .sub-text {
+            color: white;
+            font-weight: 300;
+            max-width: 324px;
+            margin: 20px 0 54px 0;
+        }
+
+        #module4 .play-link {
+            padding: 12px;
+            border-radius: 3px;
+        }
+
+        /*****************************************************************************************************************/
+        #module5 #interact-discover-learn {
+            display: block;
+            height: 140px;
+            padding: 20px;
+            margin: 24px auto 0 auto;
+        }
+
+        /*****************************************************************************************************************/
+        #module6 {
+            background: rgba(82, 23, 100, 0.05);
+        }
+
+        #module6 .statistics {
+            max-width: 1300px;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+            margin: 20px auto;
+
+
+        }
+
+        #module6 .statistic {
+            width: 240px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        #module6 .statistic h2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        #module6 .statistic span.number {
+            font-weight: 600;
+            font-size: 28.8px;
+        }
+
+        #module6 .statistic span.string {
+            font-weight: 300;
+            font-size: 28.8px;
+        }
+
+        #module6 .statistic img.interactive-icon {
+            width: 90px;
+            padding-top: 5px;
+        }
+
+        /********************************************************************************************************/
+        #module7 .what-is-phet {
+            max-width: 800px;
+            padding: 20px;
+            margin: 0 auto 20px;
+            font-size: 1.24em;
+            font-weight: 300;
+            line-height: 1.5em;
+            text-align: left;
+        }
+
+        #module7 .inline-link {
+            color: #6c6c6c;
+        }
+
+        #module7 .inline-link:hover {
+            color: rgb(221, 6, 6);
+        }
+
+        /*****************************************************************************************/
+        #module8 {
+            background: url(" {% static 'images/accessibility.jpg' %}") repeat-x center center;
+            background-size: 100%;
+            height: 482px;
+            margin-bottom: 50px;
+        }
+
+        #module8 .gradient-container {
+            padding-right: 20px;
+            background: linear-gradient(to left,
+                    rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5) 185px,
+                    rgba(0, 0, 0, 0) 505px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 482px;
+        }
+
+        #module8 .gradient-container .title-text {
+            display: flex;
+            justify-content: flex-end;
+            text-align: right;
+            color: #ffffff;
+            margin: 0;
+            padding-left: 0;
+            font-size: 2.4em;
+        }
+
+        #module8 .gradient-container .sub-text {
+            display: flex;
+            justify-content: flex-end;
+            text-align: right;
+            color: #ffffff;
+            font-weight: 300;
+            margin: 20px 0 54px 0;
+
+        }
+
+        #module8 .gradient-container .play-link {
+            padding: 12px;
+            border-radius: 3px;
+            float: right;
+        }
+
+        /**********************************************************************************************/
+        #module9 h3 {
+            font-size: 1.2em;
+            margin: 50px 0 26px 0;
+            text-align: center;
+        }
+
+        #module9 {
+
+            text-align: center;
+        }
+
+        #module9 p {
+            font-size: 1em;
+            font-weight: 300;
+            max-width: 220px;
+            margin: 26px auto 16px auto;
+        }
+
+        #module9 .inline-link {
+            color: #6c6c6c;
+        }
+
+        #module9 .inline-link:hover {
+            color: rgb(221, 6, 6);
+        }
+
+        #module9 #donate {
+            margin: 6px;
+            padding: 5px 6px;
+        }
+
+
+        /******底部*******************************************************************************************************************************/
+        #module10 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        #social-footer {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding-top: 50px;
+            width: 100%;
+        }
+
+        #footer-icon {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 200px;
+
+        }
+
+        #footer-nav-links {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 30%;
+            padding: 10px;
+        }
+
+        .floating-link {
+            color: #6c6c6c;
+            text-transform: uppercase;
+            display: block;
+            cursor: pointer;
+            font-weight: 300;
+        }
+
+        #footer-nav-links a {
+            text-decoration: none;
+        }
+
+        .translation-links {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+
+        /***************************************************************************************************************************************/
+        #module11 {
+            background: #f0f0f0;
+            text-align: center;
+            margin-top: 8px;
+            height: 74px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!--导航栏-->
+    <div class="header">
+        <!--logo-->
+        <div>
+            <img src=" {% static 'images/phet-logo-trademarked.png' %}" alt="logo" class="logo1" />
+            <img src=" {% static 'images/cu_logo.png' %}" alt="logo" class="logo2" />
+        </div>
+        <!--下拉选项-->
+        <div class="main-drop">
+            <div class="dorp">
+                <span>SIMULATIONS</span>
+                <div class="dorp_item">
+                    <p>Physics</p>
+                    <p>Chemistry</p>
+                    <p>Math</p>
+                    <p>Earth Science</p>
+                    <p>Biology</p>
+                    <p>All Sims</p>
+                    <p>Prototypes</p>
+                    <p>Translated Sims</p>
+                </div>
+            </div>
+            <div class="dorp">
+                <span>TEACHING</span>
+                <div class="dorp_item">
+                    <p>Physics</p>
+                    <p>Chemistry</p>
+                    <p>Math</p>
+                    <p>Earth Science</p>
+                    <p>Biology</p>
+                    <p>All Sims</p>
+                    <p>Prototypes</p>
+                    <p>Translated Sims</p>
+                </div>
+            </div>
+            <div class="dorp">
+                <span>RESEARCH</span>
+                <div class="dorp_item">
+                    <p>Physics</p>
+                    <p>Chemistry</p>
+                    <p>Math</p>
+                    <p>Earth Science</p>
+                    <p>Biology</p>
+                    <p>All Sims</p>
+                    <p>Prototypes</p>
+                    <p>Translated Sims</p>
+                </div>
+            </div>
+            <div class="dorp">
+                <span>ACCESSIBILITY</span>
+                <div class="dorp_item">
+                    <p>Physics</p>
+                    <p>Chemistry</p>
+                    <p>Math</p>
+                    <p>Earth Science</p>
+                    <p>Biology</p>
+                    <p>All Sims</p>
+                    <p>Prototypes</p>
+                    <p>Translated Sims</p>
+                </div>
+            </div>
+            <button id="donate">DONATE</button>
+            <ul style="list-style: none;position: relative;margin: 0;padding: 0;height: 25px;width: 25px;">
+                <li><img src=" {% static 'images/search-icon.png' %}" alt="search"
+                        style="width: 25px;height: 25px;margin-right:5px;" /></li>
+                <li><img src=" {% static 'images/sousuo1.png' %}" alt="search"
+                        style="width: 25px;height: 25px;margin-right:5px;" />
+                </li>
+            </ul>
+            <ul style="list-style: none;position: relative;margin: 0;padding: 0;height: 30px;width: 50px;">
+                <li><img src=" {% static 'images/yonghu.png' %}" alt="users"
+                        style="width: 50px;height: 30px;margin-right:5px;" />
+                </li>
+                <li><img src=" {% static 'images/yonghu1.png' %}" alt="users"
+                        style="width: 50px;height: 30px;margin-right:5px;" />
+                </li>
+            </ul>
+
+
+
+        </div>
+    </div>
+    <!--主体-->
+    <div id="contain">
+        <!--模块1-->
+        <div id="module1">
+            <h1 id="title-text">Interactive Simulations for Science and Math</h1>
+            <a class="play-link" href="#">Explore our sims</a>
+        </div>
+        <!--模块2-->
+        <div id="module2">
+            <div class="sims-delivered">
+                <p><span class="number">806 million&nbsp;</span>
+                    <span class="string">simulations delivered</span>
+                </p>
+            </div>
+        </div>
+        <!--模块3-->
+        <div id="module3">
+            <div class="subjects">
+                <div class="subject-wrapper physics">
+                    <a href="#">
+                        <h3 class="h4 text">Physics</h3><img id="physics-icon" class="subject-icon"
+                            src="{% static 'images/physics-icon.png'%}" />
+                    </a>
+                </div>
+                <div class="subject-wrapper chemistry"><a href="#">
+                        <h3 class="h4 text">Chemistry</h3><img id="chemistry-icon" class="subject-icon"
+                            src="{% static 'images/chemistry-icon.png'%}" />
+                    </a></div>
+                <div class="subject-wrapper math"><a href="#">
+                        <h3 class="h4 text">Math</h3><img id="math-icon" class="subject-icon"
+                            src="{% static 'images/math-icon.png'%}" />
+                    </a></div>
+                <div class="subject-wrapper earth-science"><a href="#">
+                        <h3 class="h4 text">Earth Science</h3><img id="earth-science-icon" class="subject-icon"
+                            src="{% static 'images/earth-science-icon.png'%}" />
+                    </a></div>
+                <div class="subject-wrapper biology"><a href="#">
+                        <h3 class="h4 text">Biology</h3><img id="biology-icon" class="subject-icon"
+                            src="{% static 'images/biology-icon.png'%}" />
+                    </a></div>
+            </div>
+        </div>
+        <!--模块4-->
+        <div id="module4">
+            <div class="gradient-container">
+                <h1 class="title-text">Teaching Resources,<br> Activities, and Community</h1>
+                <div class="float-container">
+                    <p class="sub-text">Teachers have access to simulation-specific tips and video primers, resources
+                        for
+                        teaching with simulations, and activities shared by our teacher community.</p>
+                </div>
+                <div><a class="play-link" href="#">Register Now</a></div>
+            </div>
+        </div>
+        <!--模块5-->
+        <div id="module5">
+            <img id="interact-discover-learn" src=" {% static 'images/interact-discover-learn.png' %}"
+                alt="interact discover learn" />
+        </div>
+        <!--模块6-->
+        <div id="module6">
+            <div class="statistics">
+                <div class="statistic">
+                    <h2>
+                        <span class="number">158</span>
+                        <span class="string">interactive</span>
+                        <span class="string">simulations</span>
+
+                    </h2>
+                    <img class="interactive-icon" src=" {% static 'images/interactive-icon.png' %}" />
+                </div>
+                <div class="statistic">
+                    <h2>
+                        <span class="number">94</span>
+                        <span class="string">language</span>
+                        <span class="string">translations</span>
+                    </h2>
+                    <img class="interactive-icon" src=" {% static 'images/languages-icon.png' %}" />
+                </div>
+                <div class="statistic">
+                    <h2>
+                        <span class="number">2730</span>
+                        <span class="string">teacher-submitted</span>
+                        <span class="string">lessons</span>
+                    </h2>
+                    <img class="interactive-icon" src=" {% static 'images/lessons-icon.png' %}" />
+                </div>
+            </div>
+        </div>
+        <!--模块7-->
+        <div id="module7">
+            <p class="what-is-phet">
+                Founded in 2002 by Nobel Laureate Carl Wieman, the PhET Interactive Simulations project at
+                the University of Colorado Boulder creates free interactive math and science simulations. PhET sims are
+                based on
+                extensive education <a class="inline-link" href="#">research</a> and engage students through an
+                intuitive, game-like environment where students learn through exploration and discovery.</p>
+        </div>
+        <!--模块8-->
+        <div id="module8">
+            <div class="gradient-container">
+                <h1 class="title-text">Shouldn't All Students <br>Experience STEM?</h1>
+                <div>
+                    <p class="sub-text">Learn how we are tackling challenges in STEM<br> education, software
+                        development,
+                        and<br>
+                        assistive
+                        technology.</p>
+                </div>
+                <div><a class="play-link" href="#">Explore accessible
+                        sims</a>
+                </div>
+            </div>
+        </div>
+        <!--模块9-->
+        <div id="module9">
+            <h3>PhET is supported in part by</h3>
+            <a href="#">
+                <img src=" {% static 'images/jila_logo_medium.gif' %}">
+            </a>
+            <p>and our<a class="inline-link" href="#">other sponsors</a>
+                , including educators like you.
+            </p>
+            <a id="donate" href="#">Donate now</a>
+        </div>
+    </div>
+    <!--底部-->
+    <div id="footer">
+        <footer>
+            <!--模块10-->
+            <div id="module10">
+                <!--icon-->
+                <div id="social-footer">
+                    <div style="width: 20%;height: 1px;background-color:#6c6c6c; ;"></div>
+                    <div id="footer-icon">
+                        <ul style="list-style: none;margin: 0;padding: 0;height: 23px;width: 23px;position: relative;">
+                            <li><img src=" {% static 'images/facebook.png' %}" alt="facebook"
+                                    style="height: 23px;width: 23px;" /></li>
+                            <li><img src=" {% static 'images/facebook1.png' %}" alt="facebook"
+                                    style="height: 23px;width: 23px;" />
+                            </li>
+                        </ul>
+                        <ul style="list-style: none;margin: 0;padding: 0;height: 20px;width: 20px;position: relative;">
+                            <li><img src=" {% static 'images/twitter.png' %}" alt="twitter"
+                                    style="height: 20px;width: 20px;" />
+                            </li>
+                            <li><img src=" {% static 'images/twitter1.png' %}" alt="twitter"
+                                    style="height: 20px;width: 20px;" />
+                            </li>
+                        </ul>
+                        <ul style="list-style: none;margin: 0;padding: 0;height: 23px;width: 23px;position: relative;">
+                            <li><img src=" {% static 'images/instagram.png' %}" alt="instagram"
+                                    style="height: 23px;width: 23px;" />
+                            </li>
+                            <li><img src=" {% static 'images/instagram1.png' %}" alt="instagram"
+                                    style="height: 23px;width: 23px;" />
+                            </li>
+                        </ul>
+                        <ul style="list-style: none;margin: 0;padding: 0;height: 25px;width: 25px;position: relative;">
+                            <li><img src=" {% static 'images/Youtube.png' %}" alt="Youtube"
+                                    style="height: 25px;width: 25px;" />
+                            </li>
+                            <li><img src=" {% static 'images/Youtube1.png' %}" alt="Youtube"
+                                    style="height: 25px;width: 25px;" />
+                            </li>
+                        </ul>
+                        <ul style="list-style: none;margin: 0;padding: 0;height: 23px;width: 23px;position: relative;">
+                            <li><img src=" {% static 'images/pinterest.png' %}" alt="pinterest"
+                                    style="height: 23px;width: 23px;" />
+                            </li>
+                            <li><img src=" {% static 'images/pinterest1.png' %}" alt="pinterest"
+                                    style="height: 23px;width: 23px;" />
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="width: 20%;height: 1px;background-color:#6c6c6c; ;"></div>
+
+                </div>
+                <!--link-->
+                <div id="footer-nav-links">
+                    <div style="display: flex;flex-direction: column;">
+                        <a href="#"><span class="floating-link">About PhET</span></a>
+                        <a href="#"><span class="floating-link">Our Team</span></a>
+                        <a href="#"><span class="floating-link">Sponsors</span></a>
+                        <a href="#"><span class="floating-link">Partnerships</span></a>
+                    </div>
+                    <div style="display: flex;flex-direction: column;">
+                        <a href="#"><span class="floating-link">Offline Access</span></a>
+                        <a href="#"><span class="floating-link">Help Center</span></a>
+                        <a href="#"><span class="floating-link">Contact</span></a>
+                    </div>
+                    <div style="display: flex;flex-direction: column;">
+                        <a href="#"><span class="floating-link">Source Code</span></a>
+                        <a href="#"><span class="floating-link">Licensing</span></a>
+                        <a href="#"><span class="floating-link">For Translators</span></a>
+                    </div>
+                </div>
+                <!--language-->
+                <div class="translation-links">
+                    <img src=" {% static 'images/diqiu.png' %}" alt="earth"
+                        style="width:20px;height:20px;padding: 10px;">
+                    <select aria-label="Choose language" style="height: 30px;
+    font-size: 1em;">
+                        <option selected="selected" value="" dir="auto">Choose language</option>
+                        <option value="en" dir="auto">English</option>
+                        <option value="ar_SA" dir="auto">العربية (السعودية)</option>
+                        <option value="eu" dir="auto">Basque</option>
+                        <option value="be" dir="auto">беларускі</option>
+                        <option value="bs" dir="auto">Bosnian</option>
+                        <option value="zh_CN" dir="auto">中文 (中国)</option>
+                        <option value="zh_TW" dir="auto">中文 (台灣)</option>
+                        <option value="hr" dir="auto">hrvatski</option>
+                        <option value="cs" dir="auto">čeština</option>
+                        <option value="da" dir="auto">Dansk</option>
+                        <option value="nl" dir="auto">Nederlands</option>
+                        <option value="et" dir="auto">Eesti</option>
+                        <option value="fi" dir="auto">suomi</option>
+                        <option value="fr" dir="auto">français</option>
+                        <option value="gl" dir="auto">Gallegan</option>
+                        <option value="ka" dir="auto">Georgian</option>
+                        <option value="de" dir="auto">Deutsch</option>
+                        <option value="el" dir="auto">Ελληνικά</option>
+                        <option value="hu" dir="auto">magyar</option>
+                        <option value="in" dir="auto">Bahasa Indonesia</option>
+                        <option value="it" dir="auto">italiano</option>
+                        <option value="ja" dir="auto">日本語</option>
+                        <option value="ko" dir="auto">한국어</option>
+                        <option value="ku" dir="auto">Kurdish</option>
+                        <option value="ku_TR" dir="auto">Kurdish (Turkey)</option>
+                        <option value="mk" dir="auto">македонски</option>
+                        <option value="mr" dir="auto">Marathi</option>
+                        <option value="mn" dir="auto">Mongolian</option>
+                        <option value="nb" dir="auto">Norwegian Bokmål</option>
+                        <option value="nn" dir="auto">Norwegian Nynorsk</option>
+                        <option value="fa" dir="auto">Persian</option>
+                        <option value="pt" dir="auto">português</option>
+                        <option value="pt_BR" dir="auto">português (Brasil)</option>
+                        <option value="ro" dir="auto">română</option>
+                        <option value="sr" dir="auto">Српски</option>
+                        <option value="si" dir="auto">Sinhalese</option>
+                        <option value="sk" dir="auto">Slovenčina</option>
+                        <option value="es" dir="auto">español</option>
+                        <option value="es_PE" dir="auto">español (Perú)</option>
+                        <option value="th" dir="auto">ไทย</option>
+                        <option value="tr" dir="auto">Türkçe</option>
+                        <option value="uk" dir="auto">українська</option>
+                        <option value="vi" dir="auto">Tiếng Việt</option>
+                    </select>
+                </div>
+                <!--photo-->
+                <div style="display: flex;flex-direction: row; justify-content: center;padding-top: 10px;">
+                    <img src=" {% static 'images/badge.svg' %}" alt=""
+                        style="width: 120px;cursor: pointer;padding: 5px;" />
+                    <img src=" {% static 'images/play_store_badge.png' %}" alt=""
+                        style="width: 120px;cursor: pointer;padding: 5px;" />
+                </div>
+            </div>
+            <!--模块11-->
+            <div id="module11">
+
+            </div>
+        </footer>
+    </div>
+
+
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(window).scroll(function () {
+            if ($(document).scrollTop() > 96) {
+                $('.header').addClass('change1');
+                $('.main-drop').addClass('change2');
+
+            } else {
+                $('.header').removeClass('change1');
+                $('.main-drop').removeClass('change2');
+
+            }
+        });
+    </script>
+</body>
+
+</html>
