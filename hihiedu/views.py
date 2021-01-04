@@ -6,5 +6,5 @@ from django.shortcuts import render
 class HomeView(TemplateView):
     template_name = 'home.html'
     
-class IndexView(TemplateView):
-    template_name = 'index.html'
+class PhysicsView(TemplateView):
+    template_name = 'physics.html'

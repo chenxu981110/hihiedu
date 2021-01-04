@@ -1,0 +1,203 @@
+html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /***************导航栏******************************************************************************************************************/
+        .header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            height: 96px;
+            position: -webkit-sticky;
+            position: fixed;
+            top: 0px;
+            width: 100%;
+           
+            -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+            background-color: #ffffff;
+        }
+
+        .change1 {
+            height: 70px;
+             z-index:100000;
+            background-color: #ffffffec;
+           
+        }
+
+        .logo1 {
+            height: 66px;
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+        .logo2 {
+            height: 54px;
+            padding-left: 15px;
+            border-left: solid 1px #bbb;
+        }
+
+        .main-drop {
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            margin-top: 30px;
+            -webkit-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+        }
+
+        .change2 {
+            margin-top: 0px;
+        }
+
+        #donate {
+            margin-right: 15px;
+            border: 1px solid #e01e5a;
+            color: #e01e5a;
+            outline: none;
+            background: rgba(255, 255, 255, 0);
+            font-size: 1em;
+            padding: 6px 5px;
+            transition: background ease, color ease;
+            display: inline-block;
+            margin-left: 6px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        #donate:hover {
+            background: #e01e5a;
+            color: white;
+        }
+
+        .dorp {
+            position: relative;
+            display: inline-block;
+            padding: 20px 6px;
+            margin: 4px;
+            cursor: pointer;
+        }
+
+        .dorp_item {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 150px;
+            text-align: center;
+            margin-top: 20px;
+            border-top: solid 2px #e01e5a;
+        }
+
+        .dorp_item a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .dorp:hover .dorp_item {
+            display: block;
+        }
+
+       .main-drop ul li:nth-child(1) {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .main-drop ul li:nth-child(2) {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+
+        .main-drop ul:hover li:nth-child(2) {
+            display: block;
+        }
+        
+        /******底部*******************************************************************************************************************************/
+       #footer{
+            position: relative;
+            bottom: 0px;
+            width: 100%;
+            
+        }
+        #module10 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        #social-footer {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding-top: 50px;
+            width: 100%;
+        }
+
+        #footer-icon {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 200px;
+
+        }
+     #footer-icon ul li:nth-child(1) {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+       #footer-icon ul li:nth-child(2) {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+
+        #footer-icon ul:hover li:nth-child(2) {
+            display: block;
+        }
+        #footer-nav-links {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 30%;
+            padding: 10px;
+        }
+
+        .floating-link {
+            color: #6c6c6c;
+            text-transform: uppercase;
+            display: block;
+            cursor: pointer;
+            font-weight: 300;
+        }
+
+        #footer-nav-links a {
+            text-decoration: none;
+        }
+
+        .translation-links {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+
+        /***************************************************************************************************************************************/
+        #module11 {
+            background: #f0f0f0;
+            text-align: center;
+            margin-top: 8px;
+            height: 74px;
+            width: 100%;
+        }

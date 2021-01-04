@@ -8,122 +8,10 @@
     <title>hihiedu</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href=" {% static 'css/main.css' %}">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src=" {% static 'js/main.js' %}"></script>
     <style>
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            height: 0;
-        }
-
-        /***************导航栏******************************************************************************************************************/
-        .header {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            height: 96px;
-            position: -webkit-sticky;
-            position: fixed;
-            top: 0px;
-            width: 100%;
-            z-index: 1;
-            -webkit-transition: all 0.4s ease;
-            transition: all 0.4s ease;
-            background-color: #ffffff;
-        }
-
-        .change1 {
-            height: 70px;
-            background-color: #ffffffec;
-        }
-
-        .logo1 {
-            height: 66px;
-            margin-left: 15px;
-            margin-right: 15px;
-        }
-
-        .logo2 {
-            height: 54px;
-            padding-left: 15px;
-            border-left: solid 1px #bbb;
-        }
-
-        .main-drop {
-            margin-right: 15px;
-            display: flex;
-            align-items: center;
-            margin-top: 30px;
-            -webkit-transition: all 0.4s ease;
-            transition: all 0.4s ease;
-        }
-
-        .change2 {
-            margin-top: 0px;
-        }
-
-        #donate {
-            margin-right: 15px;
-            border: 1px solid #e01e5a;
-            color: #e01e5a;
-            outline: none;
-            background: rgba(255, 255, 255, 0);
-            font-size: 1em;
-            padding: 6px 5px;
-            transition: background ease, color ease;
-            display: inline-block;
-            margin-left: 6px;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        #donate:hover {
-            background: #e01e5a;
-            color: white;
-        }
-
-        .dorp {
-            position: relative;
-            display: inline-block;
-            padding: 20px 6px;
-            margin: 4px;
-            cursor: pointer;
-        }
-
-        .dorp_item {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 150px;
-            text-align: center;
-            margin-top: 20px;
-            border-top: solid 2px #e01e5a;
-        }
-
-        .dorp:hover .dorp_item {
-            display: block;
-        }
-
-        ul li:nth-child(1) {
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        ul li:nth-child(2) {
-            position: absolute;
-            left: 0;
-            top: 0;
-            display: none;
-        }
-
-        ul:hover li:nth-child(2) {
-            display: block;
-        }
-
         /************************************************************************************************************************************/
         #module1 {
             background: url(" {% static 'images/simulations.jpg' %}") repeat-x center center;
@@ -518,69 +406,6 @@
             margin: 6px;
             padding: 5px 6px;
         }
-
-
-        /******底部*******************************************************************************************************************************/
-        #module10 {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-        }
-
-        #social-footer {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            padding-top: 50px;
-            width: 100%;
-        }
-
-        #footer-icon {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            width: 200px;
-
-        }
-
-        #footer-nav-links {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            width: 30%;
-            padding: 10px;
-        }
-
-        .floating-link {
-            color: #6c6c6c;
-            text-transform: uppercase;
-            display: block;
-            cursor: pointer;
-            font-weight: 300;
-        }
-
-        #footer-nav-links a {
-            text-decoration: none;
-        }
-
-        .translation-links {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-        }
-
-
-        /***************************************************************************************************************************************/
-        #module11 {
-            background: #f0f0f0;
-            text-align: center;
-            margin-top: 8px;
-            height: 74px;
-            width: 100%;
-        }
     </style>
 </head>
 
@@ -589,7 +414,9 @@
     <div class="header">
         <!--logo-->
         <div>
-            <img src=" {% static 'images/phet-logo-trademarked.png' %}" alt="logo" class="logo1" />
+            <a href="home.html" style="text-decoration: none;">
+                <img src=" {% static 'images/phet-logo-trademarked.png' %}" alt="logo" class="logo1" />
+            </a>
             <img src=" {% static 'images/cu_logo.png' %}" alt="logo" class="logo2" />
         </div>
         <!--下拉选项-->
@@ -597,7 +424,9 @@
             <div class="dorp">
                 <span>SIMULATIONS</span>
                 <div class="dorp_item">
-                    <p>Physics</p>
+                    <a href="physics.html">
+                        <p>Physics</p>
+                    </a>
                     <p>Chemistry</p>
                     <p>Math</p>
                     <p>Earth Science</p>
@@ -869,7 +698,7 @@
                     <img src=" {% static 'images/diqiu.png' %}" alt="earth"
                         style="width:20px;height:20px;padding: 10px;">
                     <select aria-label="Choose language" style="height: 30px;
-    font-size: 1em;">
+        font-size: 1em;">
                         <option selected="selected" value="" dir="auto">Choose language</option>
                         <option value="en" dir="auto">English</option>
                         <option value="ar_SA" dir="auto">العربية (السعودية)</option>
@@ -932,20 +761,7 @@
     </div>
 
 
-    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(window).scroll(function () {
-            if ($(document).scrollTop() > 96) {
-                $('.header').addClass('change1');
-                $('.main-drop').addClass('change2');
 
-            } else {
-                $('.header').removeClass('change1');
-                $('.main-drop').removeClass('change2');
-
-            }
-        });
-    </script>
 </body>
 
 </html>

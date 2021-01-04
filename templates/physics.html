@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>hihiedu</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href=" {% static 'css/main.css' %}">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src=" {% static 'js/main.js' %}"></script>
+
+    <style>
+        /*********主体**************************/
+        #contain {
+            height: 2341px;
+            margin-top: 96px;
+            width: 100%;
+        }
+
+        /***********模块1-背景图***************************************************************************/
+        #module1 {
+            background:url(" {% static 'images/banner_underwater.png' %}") repeat-x center center;
+            background-size: cover;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /*********************************************************************************************/
+        #module2 {
+            width: 100%;
+            margin: 10px auto;
+            height: 100%;
+        }
+
+        /*模块2-标题/内容*/
+        #module2 ul {
+            list-style: none;
+            overflow: hidden;
+        }
+
+        /*模块2-标题*/
+        #module2-nav {
+            width: 100%;
+            border-bottom: 1px solid #c6c6c6;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        #module2-nav li {
+            float: left;
+            padding: 10px 0px;
+            margin-right: 30px;
+            font-size: 1.6em;
+            font-weight: 400;
+            color: #6c6c6c;
+            transition: color 0.2s ease;
+
+        }
+
+        #module2-nav li:hover {
+            color: #000000;
+        }
+
+        #module2-nav li.active {
+            border-bottom: 3px solid #e01e5a;
+            color: #000000;
+        }
+
+        /***************************************************************/
+        /*模块2-内容*/
+        #module2-content {
+            width: 100%;
+            height: 2000px;
+            position: relative;
+            margin: 0px;
+            padding: 0px;
+
+
+        }
+
+        #module2-content #content1 {
+            width: 98%;
+            height: 100%;
+            position: absolute;
+            padding: 1%;
+
+        }
+
+        #module2-content #content2 {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 2000;
+            background-color: #ffffff;
+
+
+
+        }
+
+        #module2-content #filter {
+            width: 74%;
+            display: flex;
+            flex-direction: row;
+            margin: 0 auto;
+            height: 100%;
+
+        }
+
+        #module2-content #left {
+            /* width: 20%;*/
+            width: 250px;
+            padding: 10px;
+            margin-right: 20px;
+
+        }
+
+        #module2-content #right {
+            width: 80%;
+            /* width: 1030px;*/
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        #module2-content #right select {
+            border-radius: 3px;
+            outline: none;
+            width: 78px;
+            height: 30px;
+            color: black;
+            padding: 0px 0px 0px 20px;
+            border: 1px solid black;
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            background: white url("{% static 'images/xiajiantou.png'%}") no-repeat 85% 50%;
+            background-size: 12px;
+            margin-right: 2px;
+        }
+
+        #module2-content #right ul li:nth-child(1) {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        #module2-content #right ul li:nth-child(2) {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+
+        #module2-content #right ul:hover li:nth-child(2) {
+            display: block;
+        }
+
+        #first-line {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 98%;
+            height: 51px;
+
+            padding: 0px 0px 0px 20px;
+
+        }
+
+        #first-line #icon {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 155px;
+            justify-content: space-between;
+
+
+
+        }
+
+
+
+
+        /****************************************/
+        .menus {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .menu {
+            overflow: hidden;
+            height: 0px;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #6c6c6c;
+
+        }
+
+        .menu_title {
+            height: 50px;
+            color: black;
+            font-size: 1.2em;
+            font-weight: 400;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            text-transform: uppercase;
+        }
+
+
+        .indicator {
+            width: 20px;
+            height: 20px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+        }
+
+        .item {
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .item input {
+            zoom: 140%;
+            font-weight: 300;
+            word-break: break-all;
+        }
+
+        #ClearFilters {
+            cursor: pointer;
+            font-size: 16px;
+            padding: 10px;
+            border: 1px solid rgb(82, 23, 100);
+            background: transparent;
+            color: rgb(82, 23, 100);
+            margin: 16px auto;
+            display: block;
+            transition: all 0.2s ease;
+        }
+
+        #ClearFilters:hover {
+            background: rgb(82, 23, 100);
+            color: #ffffff;
+        }
+
+        #third-line {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+
+            flex-wrap: wrap;
+
+        }
+
+        #third-line div {
+            width: 190px;
+            height: 207px;
+            margin: 20px;
+
+            border: 1px solid #d2d2d2;
+            border-radius: 10px;
+            padding: 0 10px 10px;
+            transition: all 0.2s ease;
+        }
+
+        #third-line div:hover {
+            box-shadow: 0px 0px 10px 1px #d2d2d2;
+        }
+
+
+
+        #module2-content #Browse h3 {
+            font-size: 1.45em;
+            font-weight: 600;
+            margin-right: 10px;
+            color: black;
+        }
+
+        #module2-content #browse-title li:nth-child(1) {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        #module2-content #browse-title ul li:nth-child(2) {
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+
+        #module2-content #browse-title ul:hover li:nth-child(2) {
+            display: block;
+        }
+
+        /*****************************/
+        .wrapper {
+            position: relative;
+        }
+
+        .wrapper .container {
+            height: 210px;
+            position: relative;
+            margin: 0 auto;
+            list-style: none;
+
+        }
+
+
+        .wrapper .container .cards-list {
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            width: 210px;
+            height: 203px;
+            border: 1px solid #d2d2d2;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .wrapper .container .cards-list:hover {
+            box-shadow: 0px 0px 10px 1px #d2d2d2;
+        }
+
+
+
+
+
+        .btn-direct {
+            position: absolute;
+            top: 103px;
+            z-index: 1000;
+            width: 4rem;
+            height: 4rem;
+            transform: translateY(-50%);
+            cursor: pointer;
+            transition: .2s;
+            height: 203px;
+
+        }
+
+
+        .btn-direct.btn-left {
+            left: 0rem;
+            /*background: linear-gradient(to left, #ffffff, rgba(192, 192, 192, 0.4));*/
+            background: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(204, 202, 202, 0.6) 100px, rgba(255, 255, 255, 0.6) 360px, rgba(255, 255, 255, 0) 660px);
+        }
+
+        .btn-direct.btn-right {
+            right: 0rem;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(204, 202, 202, 0.6) 100px, rgba(255, 255, 255, 0.6) 360px, rgba(255, 255, 255, 0) 660px);
+        }
+
+        .btn-direct>span {
+            position: absolute;
+            left: calc(50% - .6rem);
+            top: calc(50% - .6rem);
+            width: 1.2rem;
+            height: 1.2rem;
+            border-top: 0.2rem solid black;
+            border-left: 0.2rem solid black;
+        }
+
+        .wrapper .shift-left {
+            transform: translateX(25%) rotate(-45deg);
+        }
+
+        .wrapper .shift-right {
+            transform: translateX(-25%) rotate(135deg);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!--导航栏-->
+    <div class="header">
+        <!--logo-->
+        <div>
+            <a href="home.html" style="text-decoration: none;">
+                <img src=" {% static 'images/phet-logo-trademarked.png' %}" alt="logo" class="logo1" />
+            </a>
+            <img src=" {% static 'images/cu_logo.png' %}" alt="logo" class="logo2" />
+        </div>
+        <!--下拉选项-->
+        <div class="main-drop">
+            <div class="dorp">
+                <span>SIMULATIONS</span>
+                <div class="dorp_item">
+                    <a href="physics.html">
+                        <p>Physics</p>
+                    </a>
+                    <p>Chemistry</p>
+                    <p>Math</p>
+                    <p>Earth Science</p>
+                    <p>Biology</p>
+                    <p>All Sims</p>
+                    <p>Prototypes</p>
+                    <p>Translated Sims</p>
+                </div>
+            </div>
+            <div class="dorp">
+                <span>TEACHING</span>
+                <div class="dorp_item">
+                    <p>Physics</p>
+                    <p>Chemistry</p>
+                    <p>Math</p>
+                    <p>Earth Science</p>
+                    <p>Biology</p>
+                    <p>All Sims</p>
+                    <p>Prototypes</p>
+                    <p>Translated Sims</p>
+                </div>
+            </div>
+            <div class="dorp">
+                <span>RESEARCH</span>
+                <div class="dorp_item">
+                    <p>Physics</p>
+                    <p>Chemistry</p>
+                    <p>Math</p>
+                    <p>Earth Science</p>
+                    <p>Biology</p>
+                    <p>All Sims</p>
+                    <p>Prototypes</p>
+                    <p>Translated Sims</p>
+                </div>
+            </div>
+            <div class="dorp">
+                <span>ACCESSIBILITY</span>
+                <div class="dorp_item">
+                    <p>Physics</p>
+                    <p>Chemistry</p>
+                    <p>Math</p>
+                    <p>Earth Science</p>
+                    <p>Biology</p>
+                    <p>All Sims</p>
+                    <p>Prototypes</p>
+                    <p>Translated Sims</p>
+                </div>
+            </div>
+            <button id="donate">DONATE</button>
+            <ul style="list-style: none;position: relative;margin: 0;padding: 0;height: 25px;width: 25px;">
+                <li><img src=" {% static 'images/search-icon.png' %}" alt="search"
+                        style="width: 25px;height: 25px;margin-right:5px;" /></li>
+                <li><img src=" {% static 'images/sousuo1.png' %}" alt="search"
+                        style="width: 25px;height: 25px;margin-right:5px;" />
+                </li>
+            </ul>
+            <ul style="list-style: none;position: relative;margin: 0;padding: 0;height: 30px;width: 50px;">
+                <li><img src=" {% static 'images/yonghu.png' %}" alt="users"
+                        style="width: 50px;height: 30px;margin-right:5px;" />
+                </li>
+                <li><img src=" {% static 'images/yonghu1.png' %}" alt="users"
+                        style="width: 50px;height: 30px;margin-right:5px;" />
+                </li>
+            </ul>
+
+
+
+        </div>
+    </div>
+
+
+
+    <!--主体-->
+    <div id="contain">
+        <!--模块1-->
+        <div id="module1">
+            <div>
+                <h1>Simulations</h1>
+            </div>
+        </div>
+        <!--模块2-->
+        <div id="module2">
+            <!--标题-->
+            <ul id="module2-nav">
+                <li>Browse</li>
+                <li class="active">Filter</li>
+            </ul>
+            <!--内容-->
+            <ul id="module2-content">
+                <!--Browse-->
+                <li id="content1">
+                    <div id="Browse">
+                        <!--Physics-->
+                        <div style="display: flex;flex-direction: column;">
+                            <div id="browse-title"
+                                style="display: flex;flex-direction: row;align-items: center;cursor: pointer;">
+                                <h3>Physics</h3>
+                                <ul
+                                    style="list-style: none;position: relative;margin: 0;padding: 0;height: 25px;width: 25px;">
+                                    <li><img src=" {% static 'images/rightarrow.png' %}" alt="search"
+                                            style="height: 25px;width: 25px;" /></li>
+                                    <li><img src=" {% static 'images/rightarrow1.png' %}" alt="search"
+                                            style="height: 25px;width: 25px;" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="wrapper  demo1">
+                                <ul class="container">
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                </ul>
+                                <i class="btn-direct btn-left">
+                                    <span class="shift-left"></span>
+                                </i>
+                                <i class="btn-direct btn-right">
+                                    <span class="shift-right"></span>
+                                </i>
+                            </div>
+                        </div>
+                        <!--Chemistry-->
+                        <div style="display: flex;flex-direction: column;">
+                            <div id="browse-title"
+                                style="display: flex;flex-direction: row;align-items: center;cursor: pointer;">
+                                <h3>Chemistry</h3>
+                                <ul
+                                    style="list-style: none;position: relative;margin: 0;padding: 0;height: 25px;width: 25px;">
+                                    <li><img src=" {% static 'images/rightarrow.png' %}" alt="search"
+                                            style="height: 25px;width: 25px;" /></li>
+                                    <li><img src=" {% static 'images/rightarrow1.png' %}" alt="search"
+                                            style="height: 25px;width: 25px;" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="wrapper  demo2">
+                                <ul class="container">
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+
+                                </ul>
+                                <i class="btn-direct btn-left">
+                                    <span class="shift-left"></span>
+                                </i>
+                                <i class="btn-direct btn-right">
+                                    <span class="shift-right"></span>
+                                </i>
+                            </div>
+                        </div>
+                        <!--Math-->
+                        <div style="display: flex;flex-direction: column;">
+                            <div id="browse-title"
+                                style="display: flex;flex-direction: row;align-items: center;cursor: pointer;">
+                                <h3>Math</h3>
+                                <ul
+                                    style="list-style: none;position: relative;margin: 0;padding: 0;height: 25px;width: 25px;">
+                                    <li><img src=" {% static 'images/rightarrow.png' %}" alt="search"
+                                            style="height: 25px;width: 25px;" /></li>
+                                    <li><img src=" {% static 'images/rightarrow1.png' %}" alt="search"
+                                            style="height: 25px;width: 25px;" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="wrapper  demo3">
+                                <ul class="container">
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                </ul>
+                                <i class="btn-direct btn-left">
+                                    <span class="shift-left"></span>
+                                </i>
+                                <i class="btn-direct btn-right">
+                                    <span class="shift-right"></span>
+                                </i>
+                            </div>
+                        </div>
+                        <!--Earth Science-->
+                        <div style="display: flex;flex-direction: column;">
+                            <div id="browse-title"
+                                style="display: flex;flex-direction: row;align-items: center;cursor: pointer;">
+                                <h3>Earth Science</h3>
+                                <ul
+                                    style="list-style: none;position: relative;margin: 0;padding: 0;height: 25px;width: 25px;">
+                                    <li><img src=" {% static 'images/rightarrow.png' %}" alt="search"
+                                            style="height: 25px;width: 25px;" /></li>
+                                    <li><img src=" {% static 'images/rightarrow1.png' %}" alt="search"
+                                            style="height: 25px;width: 25px;" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="wrapper  demo4">
+                                <ul class="container">
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+
+                                </ul>
+                                <i class="btn-direct btn-left">
+                                    <span class="shift-left"></span>
+                                </i>
+                                <i class="btn-direct btn-right">
+                                    <span class="shift-right"></span>
+                                </i>
+                            </div>
+                        </div>
+                        <!--Biology-->
+                        <div style="display: flex;flex-direction: column;">
+                            <div id="browse-title"
+                                style="display: flex;flex-direction: row;align-items: center;cursor: pointer;">
+                                <h3>Biology</h3>
+                                <ul
+                                    style="list-style: none;position: relative;margin: 0;padding: 0;height: 25px;width: 25px;">
+                                    <li><img src=" {% static 'images/rightarrow.png' %}" alt="search"
+                                            style="height: 25px;width: 25px;" /></li>
+                                    <li><img src=" {% static 'images/rightarrow1.png' %}" alt="search"
+                                            style="height: 25px;width: 25px;" />
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="wrapper  demo5">
+                                <ul class="container">
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+                                    <li class="cards-list">
+                                    </li>
+
+                                </ul>
+                                <i class="btn-direct btn-left">
+                                    <span class="shift-left"></span>
+                                </i>
+                                <i class="btn-direct btn-right">
+                                    <span class="shift-right"></span>
+                                </i>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <!--Filter-->
+                <li id="content2">
+                    <div id="filter">
+                        <!--左侧选择器-->
+                        <div id="left">
+                            <!--subject-->
+                            <div class="menus">
+                                <div id="menu_title1" class="menu_title" onclick="openMenu(this)">
+                                    subject
+                                    <div class="indicator" id="indicator1">+</div>
+                                </div>
+
+                                <div class="menu" id="menu1">
+                                    <div class="item">
+                                        <label><input type="checkbox">Physics</label>
+                                    </div>
+                                    <div class="item" style=" text-indent: 2em;">
+                                        <label><input type="checkbox">Motion</label>
+                                    </div>
+                                    <div class="item" style=" text-indent: 2em;">
+                                        <label><input type="checkbox">Sound & Waves</label>
+                                    </div>
+                                    <div class="item" style=" text-indent: 2em;">
+                                        <label><input type="checkbox">Works,Energy & Power</label>
+                                    </div>
+                                    <div class="item" style=" text-indent: 2em;">
+                                        <label><input type="checkbox">Heat & Thermo</label>
+                                    </div>
+                                    <div class="item" style=" text-indent: 2em;">
+                                        <label><input type="checkbox">Quantum Phenomena</label>
+                                    </div>
+                                    <div class="item" style=" text-indent: 2em;">
+                                        <label><input type="checkbox">Light & Radiation</label>
+                                    </div>
+                                    <div class="item" style=" text-indent: 2em;">
+                                        <label><input type="checkbox">Motion</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--grade level-->
+                            <div class="menus">
+                                <div id="menu_title2" class="menu_title" onclick="openMenu(this)">
+                                    grade level
+                                    <div class="indicator" id="indicator2">+</div>
+                                </div>
+
+                                <div class="menu" id="menu2">
+                                    <div class="item">
+                                        <label><input type="checkbox">Elementary School</label>
+                                    </div>
+                                    <div class="item">
+                                        <label><input type="checkbox">Middle School</label>
+                                    </div>
+                                    <div class="item">
+                                        <label><input type="checkbox">High School</label>
+                                    </div>
+                                    <div class="item">
+                                        <label><input type="checkbox">University</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--compatibility-->
+                            <div class="menus">
+                                <div id="menu_title3" class="menu_title" onclick="openMenu(this)">
+                                    compatibility
+                                    <div class="indicator" id="indicator3">+</div>
+                                </div>
+
+                                <div class="menu" id="menu3">
+                                    <div class="item">
+                                        <label><input type="checkbox">HTML5</label>
+                                    </div>
+                                    <div class="item">
+                                        <label><input type="checkbox">Java via CheerpJ</label>
+                                    </div>
+                                    <div class="item">
+                                        <label><input type="checkbox">Java</label>
+                                    </div>
+                                    <div class="item">
+                                        <label><input type="checkbox">Flash</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--accessibility-->
+                            <div class="menus">
+                                <div id="menu_title4" class="menu_title" onclick="openMenu(this)">
+                                    accessibility
+                                    <div class="indicator" id="indicator4">+</div>
+                                </div>
+
+                                <div class="menu" id="menu4">
+                                    <div class="item">
+                                        <label><input type="checkbox">Accessibility</label>
+                                    </div>
+                                    <div class="item" style=" text-indent: 2em;">
+                                        <label><input type="checkbox">Alternative Input</label>
+                                    </div>
+                                    <div class="item" style=" text-indent: 2em;">
+                                        <label><input type="checkbox">Interactive Description</label>
+                                    </div>
+                                    <div class="item" style=" text-indent: 2em;">
+                                        <label><input type="checkbox">Works,Energy & Power</label>
+                                    </div>
+                                    <div class="item" style=" text-indent: 2em;">
+                                        <label><input type="checkbox">Sound and Sonification</label>
+                                    </div>
+                                    <div class="item" style=" text-indent: 2em; ">
+                                        <label><input type="checkbox">Zoom and Magnific</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--locale-->
+                            <div class="menus">
+                                <div id="menu_title5" class="menu_title" onclick="openMenu(this)">
+                                    locale
+                                    <div class="indicator" id="indicator5">+</div>
+                                </div>
+
+                                <div class="menu" id="menu5">
+                                    <div class="item">
+                                        <select aria-label="Choose language"
+                                            style="height: 30px;font-size: 1em;width: 100%;outline: none;">
+                                            <option selected="selected" value="" dir="auto">Choose language</option>
+                                            <option value="en" dir="auto">English</option>
+                                            <option value="ar_SA" dir="auto">العربية (السعودية)</option>
+                                            <option value="eu" dir="auto">Basque</option>
+                                            <option value="be" dir="auto">беларускі</option>
+                                            <option value="bs" dir="auto">Bosnian</option>
+                                            <option value="zh_CN" dir="auto">中文 (中国)</option>
+                                            <option value="zh_TW" dir="auto">中文 (台灣)</option>
+                                            <option value="hr" dir="auto">hrvatski</option>
+                                            <option value="cs" dir="auto">čeština</option>
+                                            <option value="da" dir="auto">Dansk</option>
+                                            <option value="nl" dir="auto">Nederlands</option>
+                                            <option value="et" dir="auto">Eesti</option>
+                                            <option value="fi" dir="auto">suomi</option>
+                                            <option value="fr" dir="auto">français</option>
+                                            <option value="gl" dir="auto">Gallegan</option>
+                                            <option value="ka" dir="auto">Georgian</option>
+                                            <option value="de" dir="auto">Deutsch</option>
+                                            <option value="el" dir="auto">Ελληνικά</option>
+                                            <option value="hu" dir="auto">magyar</option>
+                                            <option value="in" dir="auto">Bahasa Indonesia</option>
+                                            <option value="it" dir="auto">italiano</option>
+                                            <option value="ja" dir="auto">日本語</option>
+                                            <option value="ko" dir="auto">한국어</option>
+                                            <option value="ku" dir="auto">Kurdish</option>
+                                            <option value="ku_TR" dir="auto">Kurdish (Turkey)</option>
+                                            <option value="mk" dir="auto">македонски</option>
+                                            <option value="mr" dir="auto">Marathi</option>
+                                            <option value="mn" dir="auto">Mongolian</option>
+                                            <option value="nb" dir="auto">Norwegian Bokmål</option>
+                                            <option value="nn" dir="auto">Norwegian Nynorsk</option>
+                                            <option value="fa" dir="auto">Persian</option>
+                                            <option value="pt" dir="auto">português</option>
+                                            <option value="pt_BR" dir="auto">português (Brasil)</option>
+                                            <option value="ro" dir="auto">română</option>
+                                            <option value="sr" dir="auto">Српски</option>
+                                            <option value="si" dir="auto">Sinhalese</option>
+                                            <option value="sk" dir="auto">Slovenčina</option>
+                                            <option value="es" dir="auto">español</option>
+                                            <option value="es_PE" dir="auto">español (Perú)</option>
+                                            <option value="th" dir="auto">ไทย</option>
+                                            <option value="tr" dir="auto">Türkçe</option>
+                                            <option value="uk" dir="auto">українська</option>
+                                            <option value="vi" dir="auto">Tiếng Việt</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!--clear filters-->
+                            <button id="ClearFilters">Clear Filters</button>
+
+                        </div>
+                        <!--右侧实验-->
+                        <div id="right">
+                            <!--第1行-->
+                            <div id="first-line">
+                                <div>
+                                    <h1 style="font-size:1.4em;">158 Results</h1>
+                                </div>
+                                <div id="icon">
+                                    <select>
+                                        <option value="Prof Lily">A-Z</option>
+                                        <option value="saab">Z-A</option>
+                                        <option value="opel">Newest</option>
+                                    </select>
+                                    <ul
+                                        style="list-style: none;position: relative;margin: 0;padding: 0;height: 23px;width: 23px;">
+                                        <li><img src=" {% static 'images/pailie.png' %}" alt="search"
+                                                style="height: 23px;width: 23px;" />
+                                        </li>
+                                        <li><img src=" {% static 'images/pailie1.png' %}" alt="search"
+                                                style="height: 23px;width: 23px;" />
+                                        </li>
+                                    </ul>
+                                    <ul
+                                        style="list-style: none;position: relative;margin: 0;padding: 0;height: 30px;width: 30px;">
+                                        <li><img src=" {% static 'images/category.png' %}" alt="search"
+                                                style="height: 30px;width: 30px;" />
+                                        </li>
+                                        <li><img src=" {% static 'images/category1.png' %}" alt="search"
+                                                style="height: 30px;width: 30px;" />
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--第2行-->
+                            <div></div>
+                            <!--第3行-->
+                            <div id="third-line">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--底部-->
+    <div id="footer">
+        <footer>
+            <!--模块10-->
+            <div id="module10">
+                <!--icon-->
+                <div id="social-footer">
+                    <div style="width: 20%;height: 1px;background-color:#6c6c6c; ;"></div>
+                    <div id="footer-icon">
+                        <ul style="list-style: none;margin: 0;padding: 0;height: 23px;width: 23px;position: relative;">
+                            <li><img src=" {% static 'images/facebook.png' %}" alt="facebook"
+                                    style="height: 23px;width: 23px;" /></li>
+                            <li><img src=" {% static 'images/facebook1.png' %}" alt="facebook"
+                                    style="height: 23px;width: 23px;" />
+                            </li>
+                        </ul>
+                        <ul style="list-style: none;margin: 0;padding: 0;height: 20px;width: 20px;position: relative;">
+                            <li><img src=" {% static 'images/twitter.png' %}" alt="twitter"
+                                    style="height: 20px;width: 20px;" />
+                            </li>
+                            <li><img src=" {% static 'images/twitter1.png' %}" alt="twitter"
+                                    style="height: 20px;width: 20px;" />
+                            </li>
+                        </ul>
+                        <ul style="list-style: none;margin: 0;padding: 0;height: 23px;width: 23px;position: relative;">
+                            <li><img src=" {% static 'images/instagram.png' %}" alt="instagram"
+                                    style="height: 23px;width: 23px;" />
+                            </li>
+                            <li><img src=" {% static 'images/instagram1.png' %}" alt="instagram"
+                                    style="height: 23px;width: 23px;" />
+                            </li>
+                        </ul>
+                        <ul style="list-style: none;margin: 0;padding: 0;height: 25px;width: 25px;position: relative;">
+                            <li><img src=" {% static 'images/Youtube.png' %}" alt="Youtube"
+                                    style="height: 25px;width: 25px;" />
+                            </li>
+                            <li><img src=" {% static 'images/Youtube1.png' %}" alt="Youtube"
+                                    style="height: 25px;width: 25px;" />
+                            </li>
+                        </ul>
+                        <ul style="list-style: none;margin: 0;padding: 0;height: 23px;width: 23px;position: relative;">
+                            <li><img src=" {% static 'images/pinterest.png' %}" alt="pinterest"
+                                    style="height: 23px;width: 23px;" />
+                            </li>
+                            <li><img src=" {% static 'images/pinterest1.png' %}" alt="pinterest"
+                                    style="height: 23px;width: 23px;" />
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="width: 20%;height: 1px;background-color:#6c6c6c; ;"></div>
+
+                </div>
+                <!--link-->
+                <div id="footer-nav-links">
+                    <div style="display: flex;flex-direction: column;">
+                        <a href="#"><span class="floating-link">About PhET</span></a>
+                        <a href="#"><span class="floating-link">Our Team</span></a>
+                        <a href="#"><span class="floating-link">Sponsors</span></a>
+                        <a href="#"><span class="floating-link">Partnerships</span></a>
+                    </div>
+                    <div style="display: flex;flex-direction: column;">
+                        <a href="#"><span class="floating-link">Offline Access</span></a>
+                        <a href="#"><span class="floating-link">Help Center</span></a>
+                        <a href="#"><span class="floating-link">Contact</span></a>
+                    </div>
+                    <div style="display: flex;flex-direction: column;">
+                        <a href="#"><span class="floating-link">Source Code</span></a>
+                        <a href="#"><span class="floating-link">Licensing</span></a>
+                        <a href="#"><span class="floating-link">For Translators</span></a>
+                    </div>
+                </div>
+                <!--language-->
+                <div class="translation-links">
+                    <img src=" {% static 'images/diqiu.png' %}" alt="earth"
+                        style="width:20px;height:20px;padding: 10px;">
+                    <select aria-label="Choose language" style="height: 30px;
+        font-size: 1em;">
+                        <option selected="selected" value="" dir="auto">Choose language</option>
+                        <option value="en" dir="auto">English</option>
+                        <option value="ar_SA" dir="auto">العربية (السعودية)</option>
+                        <option value="eu" dir="auto">Basque</option>
+                        <option value="be" dir="auto">беларускі</option>
+                        <option value="bs" dir="auto">Bosnian</option>
+                        <option value="zh_CN" dir="auto">中文 (中国)</option>
+                        <option value="zh_TW" dir="auto">中文 (台灣)</option>
+                        <option value="hr" dir="auto">hrvatski</option>
+                        <option value="cs" dir="auto">čeština</option>
+                        <option value="da" dir="auto">Dansk</option>
+                        <option value="nl" dir="auto">Nederlands</option>
+                        <option value="et" dir="auto">Eesti</option>
+                        <option value="fi" dir="auto">suomi</option>
+                        <option value="fr" dir="auto">français</option>
+                        <option value="gl" dir="auto">Gallegan</option>
+                        <option value="ka" dir="auto">Georgian</option>
+                        <option value="de" dir="auto">Deutsch</option>
+                        <option value="el" dir="auto">Ελληνικά</option>
+                        <option value="hu" dir="auto">magyar</option>
+                        <option value="in" dir="auto">Bahasa Indonesia</option>
+                        <option value="it" dir="auto">italiano</option>
+                        <option value="ja" dir="auto">日本語</option>
+                        <option value="ko" dir="auto">한국어</option>
+                        <option value="ku" dir="auto">Kurdish</option>
+                        <option value="ku_TR" dir="auto">Kurdish (Turkey)</option>
+                        <option value="mk" dir="auto">македонски</option>
+                        <option value="mr" dir="auto">Marathi</option>
+                        <option value="mn" dir="auto">Mongolian</option>
+                        <option value="nb" dir="auto">Norwegian Bokmål</option>
+                        <option value="nn" dir="auto">Norwegian Nynorsk</option>
+                        <option value="fa" dir="auto">Persian</option>
+                        <option value="pt" dir="auto">português</option>
+                        <option value="pt_BR" dir="auto">português (Brasil)</option>
+                        <option value="ro" dir="auto">română</option>
+                        <option value="sr" dir="auto">Српски</option>
+                        <option value="si" dir="auto">Sinhalese</option>
+                        <option value="sk" dir="auto">Slovenčina</option>
+                        <option value="es" dir="auto">español</option>
+                        <option value="es_PE" dir="auto">español (Perú)</option>
+                        <option value="th" dir="auto">ไทย</option>
+                        <option value="tr" dir="auto">Türkçe</option>
+                        <option value="uk" dir="auto">українська</option>
+                        <option value="vi" dir="auto">Tiếng Việt</option>
+                    </select>
+                </div>
+                <!--photo-->
+                <div style="display: flex;flex-direction: row; justify-content: center;padding-top: 10px;">
+                    <img src=" {% static 'images/badge.svg' %}" alt=""
+                        style="width: 120px;cursor: pointer;padding: 5px;" />
+                    <img src=" {% static 'images/play_store_badge.png' %}" alt=""
+                        style="width: 120px;cursor: pointer;padding: 5px;" />
+                </div>
+            </div>
+            <!--模块11-->
+            <div id="module11">
+
+            </div>
+        </footer>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+        var nav = document.getElementById("module2-nav");
+        var navlist = nav.children;
+        var con = document.getElementById("module2-content");
+        var conlist = con.children;
+        for (var i = 0; i < navlist.length; i++) {
+            navlist[i].index = i;
+            navlist[i].onclick = function () {
+                for (var m = 0; m < conlist.length; m++) {
+                    navlist[m].className = "";
+                    conlist[m].style.display = "none";
+                }
+                this.className = "active";
+                conlist[this.index].style.display = "block";
+            }
+        }
+
+
+
+
+        var itemHeight = 30;
+        function openMenu(obj) {
+            menuTitleId = obj.id;
+            menuId = "menu" + menuTitleId.substring(10);
+            indicatorId = "indicator" + menuTitleId.substring(10);
+
+            menu = document.getElementById(menuId);
+            indicator = document.getElementById(indicatorId);
+            height = menu.style.height;
+
+
+            if (height == "0px" || height == "") {
+                childAmount = menu.getElementsByTagName('div').length;
+                height = childAmount * itemHeight
+                menu.style.height = height + "px";
+
+
+                indicator.style.transform = "rotate(225deg)";
+            } else {
+                menu.style.height = "0px";
+                indicator.style.transform = "rotate(0deg)";
+            }
+        }
+
+
+
+
+
+
+
+    </script>
+    <script src=" {% static 'js/empile.js' %}"></script>
+    <script src=" {% static 'js/index.js' %}"></script>
+</body>
+
+</html>
