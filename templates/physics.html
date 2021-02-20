@@ -846,28 +846,33 @@
 
                                 <div class="menu" id="menu1">
                                     <div class="item">
-                                        <label><input type="checkbox">Physics</label>
+                                        <label><input type="checkbox" name="course" value="Physics">Physics</label>
                                     </div>
                                     <div class="item" style=" text-indent: 2em;">
-                                        <label><input type="checkbox">Motion</label>
+                                        <label><input type="checkbox" name="course" value="Motion">Motion</label>
                                     </div>
                                     <div class="item" style=" text-indent: 2em;">
-                                        <label><input type="checkbox">Sound & Waves</label>
+                                        <label><input type="checkbox" name="course" value="Sound & Waves">Sound &
+                                            Waves</label>
                                     </div>
                                     <div class="item" style=" text-indent: 2em;">
-                                        <label><input type="checkbox">Works,Energy & Power</label>
+                                        <label><input type="checkbox" name="course"
+                                                value="Works,Energy & Power">Works,Energy & Power</label>
                                     </div>
                                     <div class="item" style=" text-indent: 2em;">
-                                        <label><input type="checkbox">Heat & Thermo</label>
+                                        <label><input type="checkbox" name="course" value="Heat & Thermo">Heat &
+                                            Thermo</label>
                                     </div>
                                     <div class="item" style=" text-indent: 2em;">
-                                        <label><input type="checkbox">Quantum Phenomena</label>
+                                        <label><input type="checkbox" name="course" value="Quantum Phenomena">Quantum
+                                            Phenomena</label>
                                     </div>
                                     <div class="item" style=" text-indent: 2em;">
-                                        <label><input type="checkbox">Light & Radiation</label>
+                                        <label><input type="checkbox" name="course" value="Light & Radiation">Light &
+                                            Radiation</label>
                                     </div>
                                     <div class="item" style=" text-indent: 2em;">
-                                        <label><input type="checkbox">Motion</label>
+                                        <label><input type="checkbox" name="course" value="Motion">Motion</label>
                                     </div>
                                 </div>
                             </div>
@@ -880,16 +885,20 @@
 
                                 <div class="menu" id="menu2">
                                     <div class="item">
-                                        <label><input type="checkbox">Elementary School</label>
+                                        <label><input type="checkbox" name="course" value="Elementary School">Elementary
+                                            School</label>
                                     </div>
                                     <div class="item">
-                                        <label><input type="checkbox">Middle School</label>
+                                        <label><input type="checkbox" name="course" value="Middle School">Middle
+                                            School</label>
                                     </div>
                                     <div class="item">
-                                        <label><input type="checkbox">High School</label>
+                                        <label><input type="checkbox" name="course" value="High School">High
+                                            School</label>
                                     </div>
                                     <div class="item">
-                                        <label><input type="checkbox">University</label>
+                                        <label><input type="checkbox" name="course"
+                                                value="University">University</label>
                                     </div>
                                 </div>
                             </div>
@@ -902,16 +911,17 @@
 
                                 <div class="menu" id="menu3">
                                     <div class="item">
-                                        <label><input type="checkbox">HTML5</label>
+                                        <label><input type="checkbox" name="course" value="HTML5">HTML5</label>
                                     </div>
                                     <div class="item">
-                                        <label><input type="checkbox">Java via CheerpJ</label>
+                                        <label><input type="checkbox" name="course" value="Java via CheerpJ">Java via
+                                            CheerpJ</label>
                                     </div>
                                     <div class="item">
-                                        <label><input type="checkbox">Java</label>
+                                        <label><input type="checkbox" name="course" value="Java">Java</label>
                                     </div>
                                     <div class="item">
-                                        <label><input type="checkbox">Flash</label>
+                                        <label><input type="checkbox" name="course" value="Flash">Flash</label>
                                     </div>
                                 </div>
                             </div>
@@ -924,22 +934,32 @@
 
                                 <div class="menu" id="menu4">
                                     <div class="item">
-                                        <label><input type="checkbox">Accessibility</label>
+                                        <label><input type="checkbox" name="course"
+                                                value="Accessibility">Accessibility</label>
                                     </div>
                                     <div class="item" style=" text-indent: 2em;">
-                                        <label><input type="checkbox">Alternative Input</label>
+                                        <label><input type="checkbox" name="course"
+                                                value="Alternative Input">Alternative
+                                            Input</label>
                                     </div>
                                     <div class="item" style=" text-indent: 2em;">
-                                        <label><input type="checkbox">Interactive Description</label>
+                                        <label><input type="checkbox" name="course"
+                                                value="Interactive Description">Interactive
+                                            Description</label>
                                     </div>
                                     <div class="item" style=" text-indent: 2em;">
-                                        <label><input type="checkbox">Works,Energy & Power</label>
+                                        <label><input type="checkbox" name="course"
+                                                value="Works,Energy & Power">Works,Energy &
+                                            Power</label>
                                     </div>
                                     <div class="item" style=" text-indent: 2em;">
-                                        <label><input type="checkbox">Sound and Sonification</label>
+                                        <label><input type="checkbox" name="course" value="Sound and Sonification">Sound
+                                            and
+                                            Sonification</label>
                                     </div>
                                     <div class="item" style=" text-indent: 2em; ">
-                                        <label><input type="checkbox">Zoom and Magnific</label>
+                                        <label><input type="checkbox" name="course" value="Zoom and Magnific">Zoom and
+                                            Magnific</label>
                                     </div>
                                 </div>
                             </div>
@@ -1015,6 +1035,7 @@
                                 <div>
                                     <h1 style="font-size:1.4em;">158 Results</h1>
                                 </div>
+
                                 <div id="icon">
                                     <select>
                                         <option value="Prof Lily">A-Z</option>
@@ -1042,7 +1063,7 @@
                                 </div>
                             </div>
                             <!--第2行-->
-                            <div></div>
+                            <div id="labelSet"></div>
                             <!--第3行-->
                             <div id="third-line">
                                 <div></div>
@@ -1305,6 +1326,17 @@
 
 
 
+
+        ////////////////////////////////////////////
+        $(function () {
+            $("input[name=course]").click(function () {
+                var arr = new Array();
+                $("input[name=course]:checked").each(function (key, value) {
+                    arr[key] = $(value).val();
+                });
+                $("#labelSet").text(arr.join(","));
+            });
+        });
 
 
 
