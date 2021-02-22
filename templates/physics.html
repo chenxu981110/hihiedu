@@ -846,7 +846,8 @@
 
                                 <div class="menu" id="menu1">
                                     <div class="item">
-                                        <label><input type="checkbox" name="course" value="Physics">Physics</label>
+                                        <label><input type="checkbox" name="course" value="Physics"
+                                                onclick="physics()">Physics</label>
                                     </div>
                                     <div class="item" style=" text-indent: 2em;">
                                         <label><input type="checkbox" name="course" value="Motion">Motion</label>
@@ -1064,6 +1065,7 @@
                             </div>
                             <!--第2行-->
                             <div id="labelSet"></div>
+                            <!--<ul id="labelSet"></ul>-->
                             <!--第3行-->
                             <div id="third-line">
                                 <div></div>
@@ -1327,16 +1329,40 @@
 
 
 
-        ////////////////////////////////////////////
-        $(function () {
-            $("input[name=course]").click(function () {
-                var arr = new Array();
-                $("input[name=course]:checked").each(function (key, value) {
-                    arr[key] = $(value).val();
-                });
-                $("#labelSet").text(arr.join(","));
-            });
-        });
+        ////////////////////////////////////////
+        /* $(function () {
+             $("input[name=course]").click(function () {
+                 var arr = new Array();
+                 $("input[name=course]:checked").each(function (key, value) {
+                     console.log(value)
+                     arr[key] = $(value).val();
+ 
+ 
+                 });
+                 $("#labelSet").text(arr.join(","));
+             });
+         });
+ */
+
+        var i = 1;
+        function physics() {
+            i++;
+            if (i % 2 == 0) {
+
+                // var li = document.createElement("li");
+                var btn = document.createElement("button");
+                var span = document.createElement("span");
+                span.innerHTML = "physics";
+                btn.appendChild(span);
+                //li.appendChild(btn);
+                var div = document.getElementById("labelSet");
+                div.appendChild(btn);
+            } else {
+                var ul = document.getElementById("labelSet");
+                ul.removeChild(ul.childNodes[0]);
+            }
+
+        };
 
 
 
